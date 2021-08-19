@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
+
+import javax.validation.Valid;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +105,7 @@ public class UsersControllerRest {
 	@PostMapping()
 	@ApiOperation(notes = "Create a user", value = "Create user")
 	@ApiResponses(@ApiResponse(code = 201, message = "Response created if the operation was successful"))
-	public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
+	public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
 		System.out.println("Creating user " + userDTO);
 		userDTO = userService.createUser(userDTO);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.getId())
@@ -113,7 +116,7 @@ public class UsersControllerRest {
 
 	@PutMapping()
 	@ApiOperation(notes = "Retrieve the modified user", value = "Update User")
-	public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTOModify) {
+	public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO userDTOModify) {
 		System.out.println("Updating user");
 		userDTOModify = this.userService.updateUser(userDTOModify);
 		return ResponseEntity.ok(userDTOModify);
