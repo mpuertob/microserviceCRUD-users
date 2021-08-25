@@ -1,6 +1,7 @@
 package es.marcos.microservices.services;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import es.marcos.microservices.dao.entities.UserEntity;
 import es.marcos.microservices.dao.repositories.UserRepository;
 import es.marcos.microservices.mappers.UserMapper;
 import es.marcos.microservices.model.UserDTO;
+
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -67,7 +70,9 @@ public class UserServiceImpl implements UserService {
 	public UserDTO updateUser(UserDTO userDTOMod) {
 		Optional<UserDTO> optionalDTO = this.getUserById(userDTOMod.getId());
 		UserDTO userDTORecuperado = optionalDTO.get();
-		if (userDTORecuperado != null) {
+		boolean isNull = Objects.isNull(userDTORecuperado);
+		if (!isNull) {
+			userDTOMod.setId(userDTORecuperado.getId());
 			this.deleteUserById(userDTOMod.getId());
 			userDTOMod = this.createUser(userDTOMod);
 		}
