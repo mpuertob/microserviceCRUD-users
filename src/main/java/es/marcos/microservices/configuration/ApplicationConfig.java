@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 @ConfigurationProperties(prefix = "app")
 public class ApplicationConfig {
-	
+
 	private String autor;
 
 	private int edad;

@@ -25,7 +25,9 @@ public class SwaggerConfiguration {
 				.build()
 				.apiInfo(new ApiInfo("Marcos Puerto Barrero", "Microservice", "1.0",
 						"https://www.instagram.com/marcospuertobarrero14",
-						new Contact("Marcos", "https://www.instagram.com/marcospuertobarrero14", "marcospuertobarrero1@gmail.com"), "Linkedin",
-						"https://www.linkedin.com/in/marcos-puerto-barrero-4285031a1/", Collections.emptyList()));
+						new Contact("Marcos", "https://www.instagram.com/marcospuertobarrero14",
+								"marcospuertobarrero1@gmail.com"),
+						"Linkedin", "https://www.linkedin.com/in/marcos-puerto-barrero-4285031a1/",
+						Collections.emptyList()));
 	}
 }

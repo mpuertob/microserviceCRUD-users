@@ -24,7 +24,7 @@ public class HolaMundoRest {
 		String cadena = "Hola Mundo Servicio Rest Java," + autor + edad + edicion;
 		System.out.println(cadena);
 		System.out.println(applicationConfig.toString());
-		
+
 		return cadena;
 	}
 }

@@ -9,7 +9,7 @@ import es.marcos.microservices.model.UserDTO;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-  
+
 	public UserEntity getUserEntity(UserDTO userDTO);
 
 	public UserDTO getUserDTO(UserEntity userEntity);
